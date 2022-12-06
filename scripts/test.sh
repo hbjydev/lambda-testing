@@ -1,15 +1,16 @@
 #!/bin/bash
 
-NODE=""
-PYTHON=""
-GO=""
+NODE="${NODE:-$1}"
+PYTHON="${NODE:-$2}"
+GO="${NODE:-$3}"
 
-echo "Node"
-curl -w "@curl-format.txt" -o /dev/null "$NODE" | tail -n 1
+function hit() {
+  local url="$1"
 
-echo "Python"
-curl -w "@curl-format.txt" -o /dev/null "$PYTHON" | tail -n 1
+  curl -s -w "@curl-format.txt" -o /dev/null "$url" | tail -n 1 | awk '{print $2}'
+}
 
-echo "Go"
-curl -w "@curl-format.txt" -o /dev/null "$GO" | tail -n 1
+echo "Node:   $(hit $NODE)"
+echo "Python: $(hit $PYTHON)"
+echo "Go:     $(hit $GO)"
 
