@@ -1,0 +1,13 @@
+{
+    "name": "ku-conductor-infra",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^14"
+    },
+    "dependencies": {
+        "@pulumi/aws": "^5.0.0",
+        "@pulumi/aws-serverless": "^0.15.1",
+        "@pulumi/awsx": "^1.0.0",
+        "@pulumi/pulumi": "^3.0.0"
+    }
+}
